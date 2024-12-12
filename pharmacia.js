@@ -1,30 +1,26 @@
-// Pharmacy.js
-export class Pharmacy {
+// Pharmacie.js
+export class Pharmacie {
     constructor() {
-        this.medicaments = {
-            'ctrl+maj+f': 60,
-            'saveOnFocusChange': 100,
-            'CheckLinkRelation': 35,
-            'Ventoline': 40,
-            'f12+doc': 20
+        this.traitements = {
+            "ctrl+maj+f": 60,
+            "saveOnFocusChange": 10,
+            "CheckLinkRelation": 35,
+            "Ventoline": 4000,
+            "f12+doc": 200,
         };
     }
 
-    acheterTraitement(patient) {
-        console.log(`${patient.nom} arrive à la pharmacie.`);
-        
-        const traitement = patient.poche;  // le traitement que le patient a prescrit
+    acheterTraitement(patient, cimetiere) {
+        const traitement = patient.poche;
+        const prix = this.traitements[traitement];
 
-        // Vérification si le patient a assez d'argent
-        if (this.medicaments[traitement] && patient.argent >= this.medicaments[traitement]) {
-            patient.argent -= this.medicaments[traitement];
-            console.log(`${patient.nom} a acheté ${traitement} pour ${this.medicaments[traitement]}€.`);
+        if (patient.argent >= prix) {
+            patient.argent -= prix;
+            console.log(`💊 ${patient.nom} a acheté le traitement ${traitement} pour ${prix}€.`);
             patient.sante = "guéri";
-        } else if (this.medicaments[traitement] && patient.argent < this.medicaments[traitement]) {
-            console.log(`${patient.nom} n'a pas assez d'argent pour acheter ${traitement}. Il est mort.`);
-            patient.sante = "mort";
         } else {
-            console.log(`${patient.nom} n'a pas de traitement prescrit ou le traitement est invalide.`);
+            console.log(`❌ ${patient.nom} n'a pas assez d'argent pour acheter ${traitement} le tbib lui dit sir triq slama.`);
+            cimetiere.enterrer(patient); // Envoi au cimetière
         }
     }
 }

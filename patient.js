@@ -4,17 +4,17 @@ export class Patient {
         this.nom = nom;
         this.maladie = maladie;
         this.argent = argent;
-        this.poche = "";  // Ce sera le médicament que le patient achète
+        this.poche = "";
         this.sante = "malade";
     }
 
     allerCabinet(doctor) {
-        console.log(`${this.nom} va au cabinet du docteur.`);
+        console.log(`${this.nom} va au cabinet du tbib.`);
         doctor.consulter(this);
     }
 
-    allerPharmacie(pharmacia) {
+    allerPharmacie(pharmacia, cimetiere) {
         console.log(`${this.nom} va à la pharmacie.`);
-        pharmacia.acheterTraitement(this);
+        pharmacia.acheterTraitement(this, cimetiere);
     }
 }

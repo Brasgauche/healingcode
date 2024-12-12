@@ -1,14 +1,14 @@
 // Doctor.js
-export class Tbib {
+export class tbib {
     constructor() {
         this.chat = "miaou";  // Chat pour bonus
     }
 
     consulter(patient) {
-        console.log(`${patient.nom} est en consultation avec le docteur.`);
+        console.log(`${patient.nom} est en consultation avec le tbib.`);
         
         // Selon la maladie, le docteur prescrit un traitement
-        const traitements = {
+        const traitements = { 
             'mal indenté': 'ctrl+maj+f',
             'unsave': 'saveOnFocusChange',
             '404': 'CheckLinkRelation',
